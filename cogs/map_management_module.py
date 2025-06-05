@@ -92,6 +92,7 @@ class MapManagement(commands.Cog):
 
         await interaction.response.send_message(embed=embed)
 
-async def setup(bot, data_store):
-    await bot.add_cog(MapManagement(bot, data_store))
+async def setup(bot, extras):
+    data_store = extras["data_store"]
+    await bot.add_cog(YourCogClass(bot, data_store))
 

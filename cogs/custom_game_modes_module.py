@@ -39,7 +39,8 @@ class CustomGameModes(commands.Cog):
             return
         await interaction.response.send_message(f"🗑️ Custom game mode `{name}` has been deleted.", ephemeral=True)
 
+# custom_game_modes_module.py
 async def setup(bot, extras):
     data_store = extras["data_store"]
-    await bot.add_cog(YourCogClass(bot, data_store))
+    await bot.add_cog(CustomGameModes(bot, data_store))
 

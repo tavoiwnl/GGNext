@@ -5,6 +5,11 @@ from discord.ext import commands
 from discord import app_commands, Interaction
 from typing import Optional
 
+class Utils(commands.Cog):
+    def __init__(self, bot, data_store):
+        self.bot = bot
+        self.data_store = data_store
+
 # Utility functions for visual enhancements and data formatting
 def elo_tier_color(elo: int) -> discord.Color:
     if elo >= 900: return discord.Color.gold()

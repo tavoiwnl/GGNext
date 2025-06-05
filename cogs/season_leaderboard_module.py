@@ -5,7 +5,7 @@ from discord.ext import commands
 from discord import app_commands, Interaction, Embed
 from datetime import datetime
 
-class SeasonalLeaderboards(commands.Cog):
+class SeasonLeaderboard(commands.Cog):
     def __init__(self, bot, data_store):
         self.bot = bot
         self.data_store = data_store

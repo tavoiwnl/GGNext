@@ -96,7 +96,7 @@ class MatchFlowController(commands.Cog):
         await self.tempban_user(user.id, 30)
         await interaction.response.send_message(f"⏳ {user.display_name} has been temporarily banned from queueing for 30 minutes.", ephemeral=True)
 
+# match_flow_module.py
 async def setup(bot, extras):
     data_store = extras["data_store"]
-    await bot.add_cog(YourCogClass(bot, data_store))
-
+    await bot.add_cog(MatchFlowController(bot, data_store))

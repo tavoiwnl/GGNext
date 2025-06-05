@@ -86,5 +86,6 @@ class PlayerChallenges(commands.Cog):
         status = await self.data_store.toggle_challenge_pause()
         await interaction.response.send_message(f"⏸️ Challenge tracking is now {'paused' if status else 'active'}.", ephemeral=True)
 
-async def setup(bot, data_store):
-    await bot.add_cog(PlayerChallenges(bot, data_store))
+async def setup(bot, extras):
+    data_store = extras["data_store"]
+    await bot.add_cog(YourCogClass(bot, data_store))

@@ -3,7 +3,7 @@
 import discord
 from discord.ext import commands
 from discord import app_commands, Interaction
-from utils.data_manager import DataManager
+from cogs.data_store_module import DataManager
 
 # Sample language packs
 LANGUAGE_PACKS = {

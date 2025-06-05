@@ -46,7 +46,6 @@ class SeasonManagement(commands.Cog):
         await interaction.response.send_message(embed=embed)
 
 # season_management_module.py
-async def setup(bot, extras):
-    data_store = extras["data_store"]
+async def setup(bot, data_store):
     await bot.add_cog(SeasonManagement(bot, data_store))
 

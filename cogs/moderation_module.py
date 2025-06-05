@@ -33,7 +33,6 @@ class ModerationModule(commands.Cog):
             self.data_store.players.clear()
             await interaction.response.send_message("🔄 All players have been reset.", ephemeral=True)
 
-    @app_commands.command(name="cancel_match", description="Cancel an ongoing match")
     @app_commands.describe(match_id="ID of the match to cancel")
     async def cancel_match(self, interaction: Interaction, match_id: int):
         if not interaction.user.guild_permissions.administrator:

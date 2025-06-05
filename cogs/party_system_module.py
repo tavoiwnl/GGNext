@@ -70,8 +70,9 @@ class PartySystem(commands.Cog):
                 return
         await interaction.response.send_message("❗ You are not in any party.", ephemeral=True)
 
+# party_system_module.py
 async def setup(bot, extras):
     data_store = extras["data_store"]
-    await bot.add_cog(YourCogClass(bot, data_store))
+    await bot.add_cog(PartySystem(bot, data_store))
 
 

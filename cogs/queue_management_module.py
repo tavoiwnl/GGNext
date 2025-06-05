@@ -105,5 +105,6 @@ class QueueManagement(commands.Cog):
             self.data_store.tempbans.pop(user_id, None)
         return True
 
-async def setup(bot, data_store):
-    await bot.add_cog(QueueManagement(bot, data_store))
+async def setup(bot, extras):
+    data_store = extras["data_store"]
+    await bot.add_cog(YourCogClass(bot, data_store))

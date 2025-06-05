@@ -64,6 +64,7 @@ class Nickname(commands.Cog):
             if member:
                 await self.update_user_nickname(member)
 
+# nickname_module.py
 async def setup(bot, extras):
     data_store = extras["data_store"]
-    await bot.add_cog(YourCogClass(bot, data_store))
+    await bot.add_cog(Nickname(bot, data_store))

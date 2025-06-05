@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord import app_commands, Interaction, Embed
 import discord
 
-class PremiumFeatures(commands.Cog):
+class PremiumModule(commands.Cog):
     def __init__(self, bot, data_store):
         self.bot = bot
         self.data_store = data_store

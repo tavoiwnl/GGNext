@@ -52,8 +52,7 @@ class UtilCommands(commands.Cog):
         embed.set_footer(text="Use this to verify your access.")
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
-# utils.py (if this is a cog — usually it’s not!)
-async def setup(bot, extras):
-    data_store = extras["data_store"]
+# utils.py
+async def setup(bot, data_store):
     await bot.add_cog(Utils(bot, data_store))
 

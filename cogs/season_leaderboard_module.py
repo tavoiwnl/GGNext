@@ -68,7 +68,7 @@ class SeasonalLeaderboards(commands.Cog):
             )
         await interaction.response.send_message(embed=embed)
 
+# season_leaderboard_module.py
 async def setup(bot, extras):
     data_store = extras["data_store"]
-    await bot.add_cog(YourCogClass(bot, data_store))
-
+    await bot.add_cog(SeasonLeaderboard(bot, data_store))

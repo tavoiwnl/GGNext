@@ -58,7 +58,6 @@ class VoiceTextManagement(commands.Cog):
         await interaction.response.send_message(f"📬 Ready-up DMs have been **{status}**.", ephemeral=True)
 
 # voice_text_management_module.py
-async def setup(bot, extras):
-    data_store = extras["data_store"]
-    await bot.add_cog(VoiceTextManager(bot, data_store))
+async def setup(bot, data_store):
+    await bot.add_cog(VoiceTextManagement(bot, data_store))
 

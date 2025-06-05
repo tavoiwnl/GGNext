@@ -167,5 +167,7 @@ class CaptainUI(commands.Cog):
 
         await log_channel.send(embed=embed)
 
-async def setup(bot, data_store):
-    await bot.add_cog(CaptainUI(bot, data_store))
+async def setup(bot, extras):
+    data_store = extras["data_store"]
+    await bot.add_cog(YourCogClass(bot, data_store))
+

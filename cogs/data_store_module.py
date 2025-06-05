@@ -89,3 +89,8 @@ class DataStore:
 
     async def set_user_language(self, user_id, lang):
         self.languages[user_id] = lang
+
+async def setup(bot, extras):
+    data_store = extras["data_store"]
+    await bot.add_cog(YourCogClass(bot, data_store))
+

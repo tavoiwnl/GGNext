@@ -1,8 +1,7 @@
 # data_store_module.py
 
-class DataManager:
+class DataStore:
     def __init__(self):
-        pass  # Extend as needed
         self.players = {}
         self.matches = {}
         self.reports = []
@@ -13,6 +12,9 @@ class DataManager:
         self.languages = {}
 
     # --- Player Management ---
+
+    def get_player_elo(self, user_id):
+        return self.players.get(user_id, {}).get('elo', 1000)
 
     def get_player_stats(self, user_id):
         return self.players.get(user_id)

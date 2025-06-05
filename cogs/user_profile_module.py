@@ -39,7 +39,7 @@ class UserProfile(commands.Cog):
         embed.add_field(name="Banner URL", value=settings.get("banner_url", "None"), inline=True)
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
+# user_profile_module.py
 async def setup(bot, extras):
     data_store = extras["data_store"]
-    await bot.add_cog(YourCogClass(bot, data_store))
-
+    await bot.add_cog(UserProfile(bot, data_store))

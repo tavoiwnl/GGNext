@@ -1,13 +1,21 @@
 # utils/data_manager.py
 
+# --- cogs/data_manager.py ---
+
 class DataManager:
     def __init__(self):
-        self.players = {}
-        self.matches = {}
-        self.reports = []
-        self.igns = {}
-        self.seasons = {}
-        self.languages = {}
+        pass
+
+    def fetch_stats(self, user_id):
+        # Placeholder method
+        return {
+            "wins": 0,
+            "losses": 0,
+            "mvp": 0,
+            "rank": "Unranked",
+            "elo": 1000
+        }
+
 
     async def get_player_stats(self, user_id):
         return self.players.get(user_id)

@@ -46,7 +46,6 @@ class UserManagement(commands.Cog):
         await interaction.response.send_message(f"✅ IGN for {member.display_name} has been set to `{ign}`.", ephemeral=True)
 
 # user_management_module.py
-async def setup(bot, extras):
-    data_store = extras["data_store"]
+async def setup(bot, data_store):
     await bot.add_cog(UserManagement(bot, data_store))
 

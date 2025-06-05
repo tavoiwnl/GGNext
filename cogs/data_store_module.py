@@ -1,7 +1,8 @@
 # data_store_module.py
 
-class DataStore:
+class DataManager:
     def __init__(self):
+        pass  # Extend as needed
         self.players = {}
         self.matches = {}
         self.reports = []

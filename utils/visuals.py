@@ -5,7 +5,7 @@ import numpy as np
 import io
 import math
 
-def generate_smoky_animated_profile_card(user_data):
+def generate_profile_card_image(user_data):
     width, height = 600, 250
     steps = 20  # Number of frames in the animation
     font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"

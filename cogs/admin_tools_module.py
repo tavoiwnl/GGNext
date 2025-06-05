@@ -82,5 +82,7 @@ class AdminTools(commands.Cog):
         else:
             await interaction.response.send_message("❌ Match not found or already completed.", ephemeral=True)
 
-async def setup(bot, data_store):
-    await bot.add_cog(AdminTools(bot, data_store))
+async def setup(bot, extras):
+    data_store = extras["data_store"]
+    await bot.add_cog(YourCogClass(bot, data_store))
+

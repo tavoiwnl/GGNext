@@ -4,7 +4,7 @@ import os
 import asyncio
 import importlib
 
-from utils.data_store_manager import DataStore  # Load your data manager
+from cogs.data_store_module import DataStore
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="!", intents=intents)

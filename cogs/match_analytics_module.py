@@ -3,7 +3,7 @@
 import discord
 from discord.ext import commands
 from discord import app_commands, Interaction, Embed
-from cogs.data_store_module import DataManager
+from cogs.data_store_module import DataStore
 from datetime import datetime, timedelta
 
 class MatchAnalytics(commands.Cog):

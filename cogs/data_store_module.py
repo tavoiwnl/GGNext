@@ -1,10 +1,5 @@
 # data_store_module.py
 
-import json
-import os
-from cogs.data_store_module import DataStore
-
-
 class DataStore:
     def __init__(self):
         self.players = {}

@@ -55,3 +55,7 @@ class DataManager:
 
     async def get_user_language(self, user_id):
         return self.languages.get(user_id, "en")
+
+async def setup(bot, extras):
+    data_store = extras["data_store"]
+    await bot.add_cog(YourCogClass(bot, data_store))

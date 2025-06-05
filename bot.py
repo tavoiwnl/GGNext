@@ -2,6 +2,16 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
+import importlib
+
+async def load_all_cogs():
+    for cog_path in COGS:
+        try:
+            module = importlib.import_module(cog_path)
+            await module.setup(bot, data_store)
+            print(f"🔹 Loaded {cog_path}")
+        except Exception as e:
+            print(f"❌ Failed to load {cog_path}: {e}")
 
 from utils.data_store_manager import DataStore  # Load your data manager
 

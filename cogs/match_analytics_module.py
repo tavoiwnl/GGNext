@@ -7,7 +7,7 @@ from cogs.data_store_module import DataStore
 from datetime import datetime, timedelta
 
 class MatchAnalytics(commands.Cog):
-    def __init__(self, bot: commands.Bot, data_store: DataManager):
+    def __init__(self, bot: commands.Bot, data_store: DataStore):
         self.bot = bot
         self.data_store = data_store
 

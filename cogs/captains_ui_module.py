@@ -7,7 +7,7 @@ import random
 import asyncio
 import time
 
-class CaptainUI(commands.Cog):
+class CaptainsUI(commands.Cog):
     def __init__(self, bot, data_store):
         self.bot = bot
         self.data_store = data_store

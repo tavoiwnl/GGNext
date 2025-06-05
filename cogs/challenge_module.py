@@ -6,7 +6,7 @@ from discord import app_commands, Interaction, Embed
 from cogs.data_store_module import DataStore
 
 
-class PlayerChallenges(commands.Cog):
+class ChallengeModule(commands.Cog):
     def __init__(self, bot, data_store: DataStore):
         self.bot = bot
         self.data_store = data_store

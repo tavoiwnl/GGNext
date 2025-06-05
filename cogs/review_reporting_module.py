@@ -47,6 +47,6 @@ class ReviewReporting(commands.Cog):
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
 # review_reporting_module.py
-async def setup(bot, extras):
-    data_store = extras["data_store"]
+async def setup(bot, data_store):
     await bot.add_cog(ReviewReporting(bot, data_store))
+

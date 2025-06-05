@@ -54,5 +54,7 @@ class Reminders(commands.Cog):
                     pass
             await self.data_store.delete_reminder(r)
 
-async def setup(bot, data_store):
-    await bot.add_cog(Reminders(bot, data_store))
+async def setup(bot, extras):
+    data_store = extras["data_store"]
+    await bot.add_cog(YourCogClass(bot, data_store))
+

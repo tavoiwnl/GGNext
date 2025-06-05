@@ -1,6 +1,8 @@
 # --- Core dependencies ---
 discord.py>=2.3.2
 
+python-dotenv
+
 # --- Async database support (e.g., aiosqlite or your custom backend) ---
 aiosqlite>=0.19.0
 

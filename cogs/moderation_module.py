@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands, Interaction
 
-class Moderation(commands.Cog):
+class ModerationModule(commands.Cog):
     def __init__(self, bot, data_store):
         self.bot = bot
         self.data_store = data_store

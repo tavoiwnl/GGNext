@@ -10,7 +10,6 @@ class ReviewReporting(commands.Cog):
         self.bot = bot
         self.data_store = data_store
 
-    @app_commands.command(name="report_match", description="Report an issue with a match")
     @app_commands.describe(match_id="ID of the match", reason="Reason for the report")
     async def report_match(self, interaction: Interaction, match_id: str, reason: str):
         match = await self.data_store.get_match(match_id)

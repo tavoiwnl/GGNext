@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands, Interaction, Webhook, Embed
 
-class WebhookIntegration(commands.Cog):
+class Webhooks(commands.Cog):
     def __init__(self, bot, data_store):
         self.bot = bot
         self.data_store = data_store

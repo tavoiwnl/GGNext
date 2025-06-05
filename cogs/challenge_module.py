@@ -3,7 +3,7 @@
 import discord
 from discord.ext import commands
 from discord import app_commands, Interaction, Embed
-from utils.data_store_manager import DataStore
+from cogs.data_store_module import DataStore
 
 
 class PlayerChallenges(commands.Cog):

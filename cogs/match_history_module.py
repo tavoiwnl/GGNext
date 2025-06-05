@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands, Interaction, Embed
 from typing import Optional
-from utils.database import DataStore
+from cogs.data_store_module import DataStore
 
 class MatchHistory(commands.Cog):
     def __init__(self, bot, data_store: DataStore):

@@ -48,5 +48,7 @@ class MultiLanguageSupport(commands.Cog):
             user_id = ctx.author.id if hasattr(ctx, 'author') else 0
             await ctx.send(self.t(user_id, "command_not_found"))
 
-async def setup(bot: commands.Bot, data_store: DataManager):
-    await bot.add_cog(MultiLanguageSupport(bot, data_store))
+async def setup(bot, extras):
+    data_store = extras["data_store"]
+    await bot.add_cog(YourCogClass(bot, data_store))
+

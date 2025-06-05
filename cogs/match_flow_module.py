@@ -19,7 +19,6 @@ class MatchFlowController(commands.Cog):
 
         players = queue_data['players']
         guild = self.bot.get_guild(queue_data['guild_id'])
-        category = discord.utils.get(guild.categories, name="Matches")
 
         overwrites = {guild.default_role: discord.PermissionOverwrite(read_messages=False)}
         for user_id in players:

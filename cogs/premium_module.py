@@ -44,6 +44,6 @@ class PremiumFeatures(commands.Cog):
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
 # premium_module.py
-async def setup(bot, extras):
-    data_store = extras["data_store"]
-    await bot.add_cog(Premium(bot, data_store))
+async def setup(bot, data_store):
+    await bot.add_cog(PremiumModule(bot, data_store))
+

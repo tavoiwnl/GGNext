@@ -21,7 +21,7 @@ LANGUAGE_PACKS = {
 }
 
 class MultiLanguageSupport(commands.Cog):
-    def __init__(self, bot: commands.Bot, data_store: DataManager):
+    def __init__(self, bot: commands.Bot, data_store: DataStore):
         self.bot = bot
         self.data_store = data_store
 

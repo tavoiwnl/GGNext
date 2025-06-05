@@ -80,6 +80,7 @@ class MatchHistory(commands.Cog):
 
 # match_history_module.py
 async def setup(bot, data_store):
+    print("Setting up MatchHistory module")
     await bot.add_cog(MatchHistory(bot, data_store))
 
 

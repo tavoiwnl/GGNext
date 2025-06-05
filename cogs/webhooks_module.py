@@ -42,7 +42,8 @@ class WebhookIntegration(commands.Cog):
         except Exception as e:
             await interaction.response.send_message(f"❌ Failed to send message: {str(e)}", ephemeral=True)
 
+# webhooks_module.py
 async def setup(bot, extras):
     data_store = extras["data_store"]
-    await bot.add_cog(YourCogClass(bot, data_store))
+    await bot.add_cog(Webhooks(bot, data_store))
 

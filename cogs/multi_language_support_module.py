@@ -49,7 +49,6 @@ class MultiLanguageSupport(commands.Cog):
             await ctx.send(self.t(user_id, "command_not_found"))
 
 # multi_language_support_module.py
-async def setup(bot, extras):
-    data_store = extras["data_store"]
+async def setup(bot, data_store):
     await bot.add_cog(MultiLanguageSupport(bot, data_store))
 

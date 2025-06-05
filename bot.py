@@ -1,4 +1,4 @@
-# bot.py
+ --- bot.py ---
 
 import discord
 from discord.ext import commands
@@ -9,7 +9,9 @@ from utils.data_store_manager import DataStore  # Load your data manager
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="!", intents=intents)
-bot.data_store = data_store
+
+data_store = DataStore()  # ✅ Properly initialize your DataStore here
+bot.data_store = data_store  # ✅ Then attach to bot
 
 GUILD_ID = int(os.getenv("GUILD_ID"))  # Add this to your Railway environment variables
 TOKEN = os.getenv("BOT_TOKEN")         # Also add BOT_TOKEN in Railway

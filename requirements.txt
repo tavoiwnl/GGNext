@@ -17,3 +17,5 @@ Babel>=2.14.0
 
 # --- Optional: For rich console logging/debug (if desired) ---
 rich>=13.7.0
+
+numpy

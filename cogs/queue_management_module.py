@@ -1,5 +1,4 @@
-# --- cogs/queue_management_module.py ---
-
+# /cogs/queue_management_module.py
 import discord
 from discord.ext import commands
 from discord import app_commands, Interaction, Embed
@@ -103,5 +102,6 @@ class QueueManagement(commands.Cog):
             self.data_store.tempbans.pop(user_id, None)
         return True
 
+# This is the setup function for registering the cog
 async def setup(bot, data_store):
     await bot.add_cog(QueueManagement(bot, data_store))

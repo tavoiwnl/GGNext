@@ -21,3 +21,5 @@ rich>=13.7.0
 numpy
 
 pytest
+
+Flask

@@ -1,4 +1,4 @@
-# --- cogs/queue_management.py ---
+# --- cogs/queue_management_module.py ---
 
 import discord
 from discord.ext import commands
@@ -94,17 +94,14 @@ class QueueManagement(commands.Cog):
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
     async def cog_check(self, ctx):
-        # Auto-check for tempbans when user joins a queue (this could be extended for interaction-based joins)
         user_id = ctx.author.id
         ban = self.data_store.tempbans.get(user_id)
         if ban and discord.utils.utcnow() < ban:
             await ctx.send("🚫 You are temporarily banned from queues due to leaving during captain selection.", ephemeral=True)
             return False
         elif ban:
-            # Expired ban, clean it up
             self.data_store.tempbans.pop(user_id, None)
         return True
 
-# queue_management_module.py
 async def setup(bot, data_store):
     await bot.add_cog(QueueManagement(bot, data_store))

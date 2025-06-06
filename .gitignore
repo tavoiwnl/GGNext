@@ -1,14 +1,8 @@
-# Ignore environment variables file
-.env
-
-# Ignore Python bytecode files
-__pycache__/
+# Python
 *.pyc
-
-# Ignore IDE and editor configurations
-.vscode/
-.idea/
-
-# Ignore system files
-.DS_Store
-Thumbs.db
+*.pyo
+__pycache__/
+*.db
+*.sqlite
+*.log
+*.env

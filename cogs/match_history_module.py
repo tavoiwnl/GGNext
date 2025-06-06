@@ -1,8 +1,11 @@
+# --- match_history_module.py ---
+
 import discord
 from discord.ext import commands
 from discord import app_commands, Interaction, Embed
 from typing import Optional
 from cogs.data_store_module import DataStore
+
 
 class MatchHistory(commands.Cog):
     def __init__(self, bot, data_store: DataStore):
@@ -34,10 +37,8 @@ class MatchHistory(commands.Cog):
             embed.add_field(
                 name=f"Match #{match['id']} | {result} {mvp}",
                 value=(
-                    f"**Opponent:** <@{match['opponent']}>
-"
-                    f"**ELO Change:** `{elo_change}`
-"
+                    f"**Opponent:** <@{match['opponent']}>\n"
+                    f"**ELO Change:** `{elo_change}`\n"
                     f"**Played:** {timestamp}"
                 ),
                 inline=False
@@ -79,5 +80,4 @@ class MatchHistory(commands.Cog):
 
 
 async def setup(bot, data_store):
-    print("Setting up MatchHistory module")
     await bot.add_cog(MatchHistory(bot, data_store))

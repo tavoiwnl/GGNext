@@ -7,7 +7,7 @@ import importlib
 from cogs.data_store_module import DataStore
 
 intents = discord.Intents.all()
-bot = commands.Bot(command_prefix="/", intents=intents)
+bot = commands.Bot(command_prefix="!", intents=intents)
 
 data_store = DataStore()  # ✅ Properly initialize your DataStore here
 bot.data_store = data_store  # ✅ Then attach to bot

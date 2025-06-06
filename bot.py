@@ -13,6 +13,7 @@ data_store = DataStore()  # ✅ Properly initialize your DataStore here
 bot.data_store = data_store  # ✅ Then attach to bot
 
 GUILD_ID = int(os.getenv("GUILD_ID"))  # Add this to your Railway environment variables
+print(f"🔍 Using GUILD_ID: {GUILD_ID}")
 TOKEN = os.getenv("BOT_TOKEN")         # Also add BOT_TOKEN in Railway
 
 COGS = [
@@ -48,10 +49,10 @@ COGS = [
 async def on_ready():
     print(f"✅ Logged in as {bot.user} (ID: {bot.user.id})")
     try:
-        synced = await bot.tree.sync(guild=discord.Object(id=GUILD_ID))
-        print(f"🔁 Synced {len(synced)} commands.")
+        synced = await bot.tree.sync()  # Global sync fallback
+        print(f"🌍 Globally synced {len(synced)} commands.")
     except Exception as e:
-        print(f"❌ Failed to sync commands: {e}")
+        print(f"❌ Global sync failed: {e}")
 
 async def load_all_cogs():
     for cog_path in COGS:
@@ -69,3 +70,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+

@@ -3,6 +3,8 @@ from discord.ext import commands
 import os
 import asyncio
 import importlib
+from flask import Flask
+import threading
 
 # Importing the DataStore module for later usage
 from cogs.data_store_module import DataStore
@@ -50,16 +52,16 @@ COGS = [
     "cogs.utils"
 ]
 
-# Event that triggers when the bot is ready
-@bot.event
-async def on_ready():
-    print(f"✅ Logged in as {bot.user} (ID: {bot.user.id})")
-    try:
-        # Sync slash commands globally
-        synced = await bot.tree.sync()  # Global sync fallback
-        print(f"🌍 Globally synced {len(synced)} commands.")
-    except Exception as e:
-        print(f"❌ Global sync failed: {e}")
+# Initialize Flask app to keep the bot alive
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot is running!"  # Responds with a basic message
+
+def run_flask():
+    """Function to run Flask in a separate thread."""
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
 # Function to load all cogs dynamically
 async def load_all_cogs():
@@ -72,6 +74,17 @@ async def load_all_cogs():
         except Exception as e:
             print(f"❌ Failed to load {cog_path}: {e}")
 
+# Event that triggers when the bot is ready
+@bot.event
+async def on_ready():
+    print(f"✅ Logged in as {bot.user} (ID: {bot.user.id})")
+    try:
+        # Sync slash commands globally
+        synced = await bot.tree.sync()  # Global sync fallback
+        print(f"🌍 Globally synced {len(synced)} commands.")
+    except Exception as e:
+        print(f"❌ Global sync failed: {e}")
+
 # Main async function to start the bot and load cogs
 async def main():
     async with bot:
@@ -79,8 +92,13 @@ async def main():
         await load_all_cogs()
         await bot.start(TOKEN)
 
-# Entry point for running the bot
+# Start Flask server in a separate thread
+thread = threading.Thread(target=run_flask)
+thread.start()
+
+# Run the bot asynchronously
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 

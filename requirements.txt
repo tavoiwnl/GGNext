@@ -19,3 +19,5 @@ Babel>=2.14.0
 rich>=13.7.0
 
 numpy
+
+pytest

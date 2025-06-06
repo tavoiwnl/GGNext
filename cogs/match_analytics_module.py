@@ -11,7 +11,6 @@ class MatchAnalytics(commands.Cog):
         self.bot = bot
         self.data_store = data_store
 
-    @app_commands.command(name="match_history", description="View recent matches")
     @app_commands.describe(user="User to check match history for", limit="Number of recent matches to show")
     async def match_history(self, interaction: Interaction, user: discord.User = None, limit: int = 5):
         user = user or interaction.user

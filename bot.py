@@ -1,3 +1,4 @@
+# /bot_project_root/bot.py
 import discord
 from discord.ext import commands
 import os
@@ -6,7 +7,6 @@ import importlib
 from flask import Flask
 import threading
 
-# Importing the DataStore module for later usage
 from cogs.data_store_module import DataStore
 
 # Set up the bot with necessary intents
@@ -99,6 +99,7 @@ thread.start()
 # Run the bot asynchronously
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 

@@ -4,18 +4,23 @@ import os
 import asyncio
 import importlib
 
+# Importing the DataStore module for later usage
 from cogs.data_store_module import DataStore
 
+# Set up the bot with necessary intents
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="!", intents=intents)
 
+# Initialize DataStore and attach it to the bot
 data_store = DataStore()  # ✅ Properly initialize your DataStore here
 bot.data_store = data_store  # ✅ Then attach to bot
 
+# Read environment variables (ensure to set these in your environment variables on Railway)
 GUILD_ID = int(os.getenv("GUILD_ID"))  # Add this to your Railway environment variables
 print(f"🔍 Using GUILD_ID: {GUILD_ID}")
 TOKEN = os.getenv("BOT_TOKEN")         # Also add BOT_TOKEN in Railway
 
+# List of all cogs to load dynamically
 COGS = [
     "cogs.admin_tools_module",
     "cogs.captains_ui_module",
@@ -45,29 +50,37 @@ COGS = [
     "cogs.utils"
 ]
 
+# Event that triggers when the bot is ready
 @bot.event
 async def on_ready():
     print(f"✅ Logged in as {bot.user} (ID: {bot.user.id})")
     try:
+        # Sync slash commands globally
         synced = await bot.tree.sync()  # Global sync fallback
         print(f"🌍 Globally synced {len(synced)} commands.")
     except Exception as e:
         print(f"❌ Global sync failed: {e}")
 
+# Function to load all cogs dynamically
 async def load_all_cogs():
     for cog_path in COGS:
         try:
+            # Dynamically load each cog using importlib
             module = importlib.import_module(cog_path)
-            await module.setup(bot, data_store)
+            await module.setup(bot, data_store)  # Ensure each cog has a setup function that passes bot and data_store
             print(f"🔹 Loaded {cog_path}")
         except Exception as e:
             print(f"❌ Failed to load {cog_path}: {e}")
 
+# Main async function to start the bot and load cogs
 async def main():
     async with bot:
+        # Load all cogs and then start the bot
         await load_all_cogs()
         await bot.start(TOKEN)
 
+# Entry point for running the bot
 if __name__ == "__main__":
     asyncio.run(main())
+
 

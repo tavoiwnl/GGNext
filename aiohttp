@@ -1,0 +1,13 @@
+import aiohttp
+import asyncio
+
+async def keep_alive():
+    url = 'https://your-bot-name.up.railway.app'  # Replace with your bot's URL
+    while True:
+        async with aiohttp.ClientSession() as session:
+            try:
+                async with session.get(url) as response:
+                    print(f"Pinged: {url}, Status: {response.status}")
+            except Exception as e:
+                print(f"Failed to ping {url}: {e}")
+        await asyncio.sleep(1500)  # Wait for 25 minutes (1500 seconds)

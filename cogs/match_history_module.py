@@ -1,5 +1,3 @@
-# --- match_history_module.py ---
-
 import discord
 from discord.ext import commands
 from discord import app_commands, Interaction, Embed
@@ -36,8 +34,10 @@ class MatchHistory(commands.Cog):
             embed.add_field(
                 name=f"Match #{match['id']} | {result} {mvp}",
                 value=(
-                    f"**Opponent:** <@{match['opponent']}>\n"
-                    f"**ELO Change:** `{elo_change}`\n"
+                    f"**Opponent:** <@{match['opponent']}>
+"
+                    f"**ELO Change:** `{elo_change}`
+"
                     f"**Played:** {timestamp}"
                 ),
                 inline=False
@@ -62,8 +62,7 @@ class MatchHistory(commands.Cog):
 
         embed = Embed(
             title=f"📄 Match #{match_id} Details",
-            color=discord.Color.orange(),
-            timestamp=match.get("timestamp")
+            color=discord.Color.orange()
         )
 
         embed.add_field(name="Winner", value=winner.mention if winner else "Unknown", inline=True)
@@ -78,9 +77,7 @@ class MatchHistory(commands.Cog):
 
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
-# match_history_module.py
+
 async def setup(bot, data_store):
     print("Setting up MatchHistory module")
     await bot.add_cog(MatchHistory(bot, data_store))
-
-
